@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Ninject" Version="3.3.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Terminal.Extensions.Ninject\Terminal.Extensions.Ninject.csproj" />
+      <ProjectReference Include="..\Terminal.Logging\Terminal.Logging.csproj" />
+    </ItemGroup>
+
+</Project>

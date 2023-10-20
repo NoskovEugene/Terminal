@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Terminal.Files.Ini\Terminal.Files.Ini.csproj" />
+      <ProjectReference Include="..\Terminal.Logging.Extensions.Ninject\Terminal.Logging.Extensions.Ninject.csproj" />
+      <ProjectReference Include="..\Terminal.Logging\Terminal.Logging.csproj" />
+      <ProjectReference Include="..\Terminal.Routing\Terminal.Routing.csproj" />
+      <ProjectReference Include="..\Terminal.SharedModels\Terminal.SharedModels.csproj" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <PackageReference Include="Ninject" Version="3.3.6" />
+      <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.3.0" />
+    </ItemGroup>
+
+
+
+
+
+
+
+    <ItemGroup>
+      <PotentialEditorConfigFiles Remove="C:\Users\eugene\.nuget\packages\dryioc\5.4.1\contentFiles\cs\netstandard2.0\DryIoc\.editorconfig" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <GlobalAnalyzerConfigFiles Remove="C:\Users\eugene\.nuget\packages\dryioc\5.4.1\contentFiles\cs\netstandard2.0\DryIoc\.globalconfig" />
+
+
+
+    </ItemGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+</Project>
