@@ -40,24 +40,13 @@ public static class IniFileParser
         return Parse(new IniFile(filePath));
     }
     
-    private static bool TryParseValue(string input, out (string key, IniValue value) valueTuple)
+    private static bool TryParseValue(string input, out (string key, string value) valueTuple)
     {
-        valueTuple = new ValueTuple<string, IniValue>(string.Empty, new IniValue());
-        if (input.HasDecorator())
-        {
-            if (TryGetDecorator(input, out var result))
-            {
-                valueTuple.value.Decorator = result.decorator;
-                input = result.substring;
-            }
-            else
-                return false;
-        }
-
+        valueTuple = new ValueTuple<string, string>(string.Empty, string.Empty);
         var arr = input.Split('=');
         if (arr.Length != 2) return false;
         valueTuple.key = arr[0];
-        valueTuple.value.Value = arr[1];
+        valueTuple.value = arr[1];
         return true;
     }
 

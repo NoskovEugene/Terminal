@@ -20,7 +20,7 @@ public static class IniFileExtensions
             
             if (propertyInfo.PropertyType == typeof(string))
             {
-                propertyInfo.SetValue(obj, pair.Value);
+                propertyInfo.SetValue(obj, pair);
                 continue;
             }
             
@@ -29,11 +29,11 @@ public static class IniFileExtensions
             if (attribute != null && typeof(IConverter).IsAssignableFrom(attribute.ConverterType))
             {
                 var converter = (IConverter)Activator.CreateInstance(attribute.ConverterType)!;
-                typed = converter.Convert(typeof(string), propertyInfo.PropertyType, pair.Value);
+                typed = converter.Convert(typeof(string), propertyInfo.PropertyType, pair);
             }
             else
             {
-                typed = Convert.ChangeType(pair.Value, propertyInfo.PropertyType);
+                typed = Convert.ChangeType(pair, propertyInfo.PropertyType);
             }
             
             propertyInfo.SetValue(obj, typed);

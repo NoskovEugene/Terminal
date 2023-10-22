@@ -8,27 +8,20 @@ public class IniSection
 
     public IniSection? Parent { get; set; }
 
-    public Dictionary<string, IniValue> Pairs { get; } = new();
+    public Dictionary<string, string> Pairs { get; } = new();
 
     public string Path => Parent != null ? $"{Parent.Path}.{Name}" : Name;
 
     public void UpdateOrCreatePair(string key, string value)
     {
-        if (Pairs.TryGetValue(key, out var iniValue))
-        {
-            iniValue.Value = value;
-        }
-        else
-        {
-            Pairs.Add(key, new IniValue { Value = value });
-        }
+        Pairs[key] = value;
     }
 
     public void TryUpdateValue(string key, string value)
     {
-        if (Pairs.TryGetValue(key, out var iniValue))
+        if (Pairs.ContainsKey(key))
         {
-            iniValue.Value = value;
+            Pairs[key] = value;
         }
     }
 }

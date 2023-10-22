@@ -42,7 +42,7 @@ public class IniFile
         _sections.Add(section);
     }
 
-    public IniValue this[string key]
+    public string this[string key]
     {
         get => UnnamedSection.Pairs[key];
         set => UnnamedSection.Pairs[key] = value; 
@@ -58,13 +58,9 @@ public class IniFile
             foreach (var keyValuePair in section.Pairs)
             {
                 var builder = new StringBuilder();
-                if (!keyValuePair.Value.Decorator.IsNullOrEmpty())
-                {
-                    builder.Append($"@{keyValuePair.Value.Decorator};");
-                }
                 builder.Append(keyValuePair.Key);
                 builder.Append('=');
-                builder.Append(keyValuePair.Value.Value);
+                builder.Append(keyValuePair.Value);
 
                 sb.AppendLine(builder.ToString());
             }
